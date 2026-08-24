@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "demo_hacia_merida",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "ciudades": "Cancún", "data": 1991 }, "geometry": { "type": "Point", "coordinates": [ -86.854617157372573, 21.159759994350374 ] } },
+{ "type": "Feature", "properties": { "fid": 2, "ciudades": "Playa del Carmen", "data": 1800 }, "geometry": { "type": "Point", "coordinates": [ -87.075557354325184, 20.637061276216563 ] } },
+{ "type": "Feature", "properties": { "fid": 3, "ciudades": "Valladolid", "data": 560 }, "geometry": { "type": "Point", "coordinates": [ -88.204255588944449, 20.68946906325899 ] } },
+{ "type": "Feature", "properties": { "fid": 4, "ciudades": "Tizimín", "data": 478 }, "geometry": { "type": "Point", "coordinates": [ -88.157364411064364, 21.146795962818793 ] } },
+{ "type": "Feature", "properties": { "fid": 5, "ciudades": "Celestún", "data": 152 }, "geometry": { "type": "Point", "coordinates": [ -90.397935222357702, 20.860759777750321 ] } },
+{ "type": "Feature", "properties": { "fid": 6, "ciudades": "Progreso", "data": 259 }, "geometry": { "type": "Point", "coordinates": [ -89.662984966702041, 21.283607870045373 ] } },
+{ "type": "Feature", "properties": { "fid": 7, "ciudades": "Hopelchén", "data": 131 }, "geometry": { "type": "Point", "coordinates": [ -89.844067662456482, 19.747783879243766 ] } },
+{ "type": "Feature", "properties": { "fid": 8, "ciudades": "Felipe Carrillo Puerto", "data": 156 }, "geometry": { "type": "Point", "coordinates": [ -88.046204736442661, 19.579251469333592 ] } },
+{ "type": "Feature", "properties": { "fid": 9, "ciudades": "Izamal", "data": 89 }, "geometry": { "type": "Point", "coordinates": [ -89.017679609934646, 20.930820714112286 ] } },
+{ "type": "Feature", "properties": { "fid": 10, "ciudades": "Motul", "data": 97 }, "geometry": { "type": "Point", "coordinates": [ -89.283580171560502, 21.09631898898315 ] } },
+{ "type": "Feature", "properties": { "fid": 11, "ciudades": "Peto", "data": null }, "geometry": { "type": "Point", "coordinates": [ -88.923345593258233, 20.126499098239897 ] } }
+]
+}
