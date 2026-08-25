@@ -2,9 +2,12 @@
 
 FlowMaps es una aplicación web y librería geoespacial diseñada para generar **mapas de flujos distributivos** a partir de datos de origen y destino. El pipeline interno crea una malla espacial, evita polígonos de restricción, agrupa rutas utilizando algoritmos de *edge bundling* (confluencia) y produce resultados listos para análisis y publicación.
 
-![Ejemplo de mapa de flujos](image/logo_flowmaps.png)
+![Logo de FlowMaps](image/logo_flowmaps.png)
+*Interfaz de FlowMaps y ejemplos de mapas de flujos*
+![Interfaz de FlowMaps](image/interfaz_v1.0.png)
+![Resultado de mapa de flujos](image/demo0.png)
 
-*Interfaz de FlowMaps y resultados visuales*
+
 
 ---
 
