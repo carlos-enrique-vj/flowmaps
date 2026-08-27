@@ -73,7 +73,15 @@ def generar_mapa_html(
     )
 
     # ── Capas base ──
-    folium.TileLayer(config.tiles, name=config.tiles, show=True).add_to(m)
+    if config.tiles == 'Esri Dark Gray':
+        folium.TileLayer(
+            tiles='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+            attr='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+            name='Esri Dark Gray',
+            show=True
+        ).add_to(m)
+    else:
+        folium.TileLayer(config.tiles, name=config.tiles, show=True).add_to(m)
     
     folium.TileLayer(
         tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
@@ -128,7 +136,14 @@ def generar_mapa_html(
     _agregar_leyenda_html(m, polylineas, config, len(destinos))
 
     # Mini mapa
-    MiniMap(tile_layer=config.tiles, toggle_display=True,
+    minimap_layer = config.tiles
+    if config.tiles == 'Esri Dark Gray':
+        import folium
+        minimap_layer = folium.TileLayer(
+            tiles='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+            attr='Esri'
+        )
+    MiniMap(tile_layer=minimap_layer, toggle_display=True,
             position='bottomleft', width=150, height=150).add_to(m)
 
     # Control de capas

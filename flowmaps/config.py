@@ -108,7 +108,7 @@ class FlowMapConfig:
 
     # ── Mapa interactivo (Folium/Leaflet) ──
     html_salida: Optional[str] = None
-    tiles: str = "CartoDB dark_matter"
+    tiles: str = "Esri Dark Gray"
     color_flujo_html: str = "#00e5a0"
     opacidad_flujo: float = 0.75
     grosor_min_html: float = 1.0

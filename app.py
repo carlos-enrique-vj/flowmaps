@@ -558,7 +558,7 @@ def main() -> None:
                 fondo = st.color_picker("Fondo del PNG", "#1a1a2e")
                 tiles = st.selectbox(
                     "Mapa base HTML",
-                    ("CartoDB dark_matter", "CartoDB positron", "OpenStreetMap"),
+                    ("Esri Dark Gray", "CartoDB positron", "OpenStreetMap"),
                 )
                 zoom_etiquetas = st.slider("Zoom de etiquetas", 1, 20, 13)
                 dpi = st.slider("Resolución PNG (DPI)", 100, 300, 200, 25)
