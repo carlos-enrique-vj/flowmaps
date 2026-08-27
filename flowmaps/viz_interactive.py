@@ -73,11 +73,31 @@ def generar_mapa_html(
     )
 
     # ── Capas base ──
-    if config.tiles == 'Esri Dark Gray':
+    MAPAS_BASE = {
+        'Esri Dark Gray': {
+            'tiles': 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+            'attr': 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+        },
+        'CartoDB positron': {
+            'tiles': 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+            'attr': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        },
+        'OpenStreetMap': {
+            'tiles': 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            'attr': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        },
+        'CartoDB dark_matter': {
+            'tiles': 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+            'attr': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        }
+    }
+    
+    if config.tiles in MAPAS_BASE:
+        mb = MAPAS_BASE[config.tiles]
         folium.TileLayer(
-            tiles='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-            attr='Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-            name='Esri Dark Gray',
+            tiles=mb['tiles'],
+            attr=mb['attr'],
+            name=config.tiles,
             show=True
         ).add_to(m)
     else:
@@ -136,13 +156,16 @@ def generar_mapa_html(
     _agregar_leyenda_html(m, polylineas, config, len(destinos))
 
     # Mini mapa
-    minimap_layer = config.tiles
-    if config.tiles == 'Esri Dark Gray':
+    if config.tiles in MAPAS_BASE:
+        mb = MAPAS_BASE[config.tiles]
         import folium
         minimap_layer = folium.TileLayer(
-            tiles='https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
-            attr='Esri'
+            tiles=mb['tiles'],
+            attr=mb['attr']
         )
+    else:
+        minimap_layer = config.tiles
+
     MiniMap(tile_layer=minimap_layer, toggle_display=True,
             position='bottomleft', width=150, height=150).add_to(m)
 
